@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import dataSet from './Dataset';
-import ScoreArea from '../components/QuizRendering/ScoreArea';
-import QuizArea from '../components/QuizRendering/QuizArea';
+import dataSet from '../Dataset';
+import ScoreArea from '../QuizRendering/ScoreArea';
+import QuizArea from '../QuizRendering/QuizArea';
 
 
 
@@ -58,7 +58,7 @@ class QuizRendering extends Component {
     return(
       <div  className="App">
 
-        <div className="App-header bg-info">
+        <div className="App-header bg-info ">
           
           <h2>Quiz Assignment:</h2>
         </div>

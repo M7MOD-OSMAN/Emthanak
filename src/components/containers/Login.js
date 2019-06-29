@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Icon, Input, Button, Spin } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import * as actions from '../store/actions/auth';
+import * as actions from '../../store/actions/auth';
 
 const FormItem = Form.Item;
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
@@ -29,7 +29,7 @@ class NormalLoginForm extends React.Component {
 
     const { getFieldDecorator } = this.props.form;
     return (
-        <div>
+        <div className=' pt-5 '>
             {errorMessage}
             {
                 this.props.loading ?

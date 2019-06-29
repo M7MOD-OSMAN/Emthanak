@@ -40,20 +40,23 @@ export const checkAuthTimeout = expirationTime => {
 export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('http://127.0.0.1:8000/rest-auth/login/', {
+        axios.post('https://elshafeay.pythonanywhere.com/api-token-auth/', {
             username: username,
             password: password
         })
         .then(res => {
-            const token = res.data.key;
+            const token = res.data;
             const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
             localStorage.setItem('token', token);
             localStorage.setItem('expirationDate', expirationDate);
             dispatch(authSuccess(token));
             dispatch(checkAuthTimeout(3600));
+            console.log('auth success ya mahmoud' + res)
         })
         .catch(err => {
             dispatch(authFail(err))
+            console.log('auth failed' + err)
+
         })
     }
 }
@@ -61,22 +64,26 @@ export const authLogin = (username, password) => {
 export const authSignup = (username, email, password1, password2) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
+        axios.post('https://elshafeay.pythonanywhere.com/api/v2/users/', {
             username: username,
             email: email,
             password1: password1,
             password2: password2
         })
         .then(res => {
-            const token = res.data.key;
+            const token = res.data;
             const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
             localStorage.setItem('token', token);
             localStorage.setItem('expirationDate', expirationDate);
             dispatch(authSuccess(token));
             dispatch(checkAuthTimeout(3600));
+            console.log('reg success ya mahmoud' + res)
+
         })
         .catch(err => {
             dispatch(authFail(err))
+            console.log('reg fail ya laaaaaaaaaaaaa' + err)
+
         })
     }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Icon, Button } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import * as actions from '../store/actions/auth';
+import * as actions from '../../store/actions/auth';
 
 const FormItem = Form.Item;
 
@@ -24,6 +24,7 @@ class RegistrationForm extends React.Component {
         this.props.history.push('/');
       }
     });
+    console.log(this.props.onAuth())
   }
 
   handleConfirmBlur = (e) => {
@@ -53,7 +54,7 @@ class RegistrationForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <div className="container">
+      <div className="container  pt-5 ">
       <div className="card card-register mx-auto mt-5">
       <div className="card-header">Register an Account</div>
       <Form onSubmit={this.handleSubmit}>

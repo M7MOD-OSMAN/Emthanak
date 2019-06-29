@@ -3,14 +3,14 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import * as actions from './store/actions/auth';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import About from './components/About'
-import Contact from './components/Contact';
-import Register from './components/Register';
-import Home from './components/Home';
-import Login from './components/Login';
-import QuizRendering from './components/QuizRendering';
+import Navigation from './components/containers/Navigation';
+import Footer from './components/containers/Footer';
+import Contact from './components/containers/Contact';
+import Register from './components/containers/Register';
+import Home from './components/containers/Home';
+import Login from './components/containers/Login';
+import QuizRendering from './components/containers/QuizRendering';
+import About from './components/containers/About';
 
 class  App extends Component {
 
