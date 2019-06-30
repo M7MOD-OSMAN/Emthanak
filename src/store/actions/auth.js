@@ -39,29 +39,29 @@ export const checkAuthTimeout = expirationTime => {
 
 export const authLogin = (username, password) => {
     return dispatch => {
+
         dispatch(authStart());
         axios.post('https://elshafeay.pythonanywhere.com/api-token-auth/', {
             username: username,
             password: password
         })
+        
         .then(res => {
-            const token = res.data;
+            const token = res.data.token;
             const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
             localStorage.setItem('token', token);
             localStorage.setItem('expirationDate', expirationDate);
             dispatch(authSuccess(token));
             dispatch(checkAuthTimeout(3600));
-            console.log('auth success ya mahmoud' + res)
         })
         .catch(err => {
             dispatch(authFail(err))
-            console.log('auth failed' + err)
 
         })
     }
 }
 
-export const authSignup = (username, email, password1, password2) => {
+export const authSignup = (username, email, password1) => {
     return dispatch => {
         dispatch(authStart());
         axios.post('https://elshafeay.pythonanywhere.com/api/v2/users/', {
@@ -82,13 +82,11 @@ export const authSignup = (username, email, password1, password2) => {
             localStorage.setItem('expirationDate', expirationDate);
             dispatch(authSuccess(token));
             dispatch(checkAuthTimeout(3600));
-            console.log('reg success ya mahmoud' + res)
         
             
         })
         .catch(err => {
             dispatch(authFail(err))
-            console.log('reg fail ya laaaaaaaaaaaaa' + err)
 
         })
 

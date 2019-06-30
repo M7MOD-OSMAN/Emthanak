@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import React,{Component} from 'react';
 import dataSet from '../Dataset';
 import ScoreArea from '../QuizRendering/ScoreArea';
@@ -54,6 +56,7 @@ class QuizRendering extends Component {
     incorrect={this.state.incorrect} 
   />
   }
+ 
   render() {
     return(
       <div  className="App">
@@ -63,7 +66,6 @@ class QuizRendering extends Component {
           <h2 className=''>Quiz Assignment:</h2>
         </div>
         {this.state.current === dataSet.length -1 ? this.renderScoreArea() : this.renderQuizArea()}
-        
         
       </div>
     )
