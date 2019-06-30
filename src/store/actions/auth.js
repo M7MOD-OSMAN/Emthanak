@@ -67,24 +67,31 @@ export const authSignup = (username, email, password1, password2) => {
         axios.post('https://elshafeay.pythonanywhere.com/api/v2/users/', {
             username: username,
             email: email,
-            password1: password1,
-            password2: password2
-        })
+            password: password1,
+            first_name:"",
+            last_name:"",
+            finished_exams:[]
+        
+        }, {headers: {
+            'Content-Type': 'application/json',
+        }})
         .then(res => {
-            const token = res.data;
+            const token = res.data.key;
             const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
             localStorage.setItem('token', token);
             localStorage.setItem('expirationDate', expirationDate);
             dispatch(authSuccess(token));
             dispatch(checkAuthTimeout(3600));
             console.log('reg success ya mahmoud' + res)
-
+        
+            
         })
         .catch(err => {
             dispatch(authFail(err))
             console.log('reg fail ya laaaaaaaaaaaaa' + err)
 
         })
+
     }
 }
 

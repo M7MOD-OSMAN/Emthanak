@@ -58,9 +58,9 @@ class QuizRendering extends Component {
     return(
       <div  className="App">
 
-        <div className="App-header bg-info ">
+        <div className="App-header  bg-info ">
           
-          <h2>Quiz Assignment:</h2>
+          <h2 className=''>Quiz Assignment:</h2>
         </div>
         {this.state.current === dataSet.length -1 ? this.renderScoreArea() : this.renderQuizArea()}
         

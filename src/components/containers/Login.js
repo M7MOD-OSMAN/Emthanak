@@ -38,7 +38,7 @@ class NormalLoginForm extends React.Component {
 
                 :
             <div className="card card-login mx-auto mt-5">
-            <div className="card-header">Login</div>
+            <div className="card-header text-center">Login</div>
             <div className="card-body">
                 <Form onSubmit={this.handleSubmit} className="login-form">
 
@@ -65,7 +65,7 @@ class NormalLoginForm extends React.Component {
                     Or 
                     <NavLink 
                         style={{marginRight: '10px'}} 
-                        to='/signup/'> signup
+                        to='/register'> signup
                     </NavLink>
                     </FormItem>
                 </Form>

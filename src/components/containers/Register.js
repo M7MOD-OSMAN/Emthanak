@@ -24,7 +24,6 @@ class RegistrationForm extends React.Component {
         this.props.history.push('/');
       }
     });
-    console.log(this.props.onAuth())
   }
 
   handleConfirmBlur = (e) => {
@@ -56,7 +55,7 @@ class RegistrationForm extends React.Component {
     return (
       <div className="container  pt-5 ">
       <div className="card card-register mx-auto mt-5">
-      <div className="card-header">Register an Account</div>
+      <div className="card-header text-center">Register an Account</div>
       <Form onSubmit={this.handleSubmit}>
                
         <FormItem>
