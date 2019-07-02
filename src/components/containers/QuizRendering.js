@@ -8,20 +8,17 @@ import QuizArea from '../QuizRendering/QuizArea';
 
 
 class QuizRendering extends Component {
-  
  
-    
-    state = {
-      current:0, 
-      dataSet:dataSet,
-       correct:0,
-        incorrect:0
-      }
-    
-
-      
-      
-
+  
+     constructor(props){
+       super(props);
+       this.state = {
+        current:0, 
+        dataSet: props.dataSet,
+         correct:0,
+          incorrect:0
+        }
+     }
   handleClick= (choice) => {
     var answerString = parseInt(this.state.dataSet[this.state.current].answer,10);
 

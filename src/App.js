@@ -10,6 +10,7 @@ import Register from './components/containers/Register';
 import Home from './components/containers/Home';
 import Login from './components/containers/Login';
 import QuizRendering from './components/containers/QuizRendering';
+import Exams from './components/containers/Exams/Exams'
 import About from './components/containers/About';
 
 class  App extends Component {
@@ -30,7 +31,7 @@ class  App extends Component {
       <Route path="/contact" component= {Contact}/>
       <Route path="/register" component= {Register}/>
       <Route path="/login" component= {Login}/>
-      <Route path="/quiz" component= {QuizRendering} /> 
+      <Route  path="/exams" component= {Exams} /> 
 
       <Footer {...this.props}/>
     </div>

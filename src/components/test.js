@@ -5,14 +5,19 @@ test() {
       {headers: 
         
         {
-            'Content-Type': 'application/json',
-            'Authorization':'Token '+localStorage.getItem("token")        }}
-  )
-  .then(res => {
+          'Content-Type': 'application/json',
+          'Authorization':'Token '+localStorage.getItem("token")
+        }
+
+      }
+    )
+
+    .then(res => {
       console.log(res);
-  })
+    })
   .catch(err => {
       console.log('auth failed' + err)
 
-  });
+    });
+  
   }

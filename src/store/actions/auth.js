@@ -61,7 +61,8 @@ export const authLogin = (username, password) => {
     }
 }
 
-export const authSignup = (username, email, password1) => {
+export const authSignup = (username, email, password1, is_student,bio) => {
+    var avatar ; 
     return dispatch => {
         dispatch(authStart());
         axios.post('https://elshafeay.pythonanywhere.com/api/v2/users/', {
@@ -70,8 +71,16 @@ export const authSignup = (username, email, password1) => {
             password: password1,
             first_name:"",
             last_name:"",
-            finished_exams:[]
-        
+            profile: {
+                "bio": bio,
+                "location": "",
+                "career": "",
+                "birth_date": null,
+                "is_teacher": is_student,
+                "phone_number": "",
+                "avatar": avatar
+            },
+            finished_exams:[],
         }, {headers: {
             'Content-Type': 'application/json',
         }})
@@ -86,6 +95,7 @@ export const authSignup = (username, email, password1) => {
             
         })
         .catch(err => {
+            console.log("ERror", err)
             dispatch(authFail(err))
 
         })

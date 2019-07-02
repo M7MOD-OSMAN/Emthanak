@@ -3,13 +3,16 @@ import Answer from './Answer';
 
 const AnswerList = (props) => {
     var choices = []
-    for (let i = 0; i < props.dataSet.choices.length; i++) {
-      choices.push(
-            <Answer choice={i}
-                handleClick={props.handleClick} 
-                answer={props.dataSet.choices[i]}
-                />)
-     }
+    if(props.dataSet){
+      for (let i = 0; i < props.dataSet.choices.length; i++) {
+        choices.push(
+              <Answer choice={i}
+                  handleClick={props.handleClick} 
+                  answer={props.dataSet.choices[i]}
+                  />)
+       }
+    }
+   
   return(
               
               <ul className="answerOptions">

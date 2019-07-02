@@ -1,9 +1,9 @@
 import React from 'react';
-import { Form, Input, Icon, Button } from 'antd';
+import { Form, Input, Icon, Button, Select } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as actions from '../../store/actions/auth';
-
+const {Option} = Select;
 const FormItem = Form.Item;
 
 class RegistrationForm extends React.Component {
@@ -15,11 +15,14 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        let is_student = false;
+        if (values.userType === "student") is_student = true;
         this.props.onAuth(
-            values.userName,
-            values.email,
-            values.password,
-            values.confirm
+          values.userName,
+          values.email,
+          values.password,
+          is_student,
+          values.bio,
         );
         this.props.history.push('/');
       }
@@ -98,9 +101,33 @@ class RegistrationForm extends React.Component {
               validator: this.compareToFirstPassword,
             }],
           })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" onBlur={this.handleConfirmBlur} />
+            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="confirm your password" onBlur={this.handleConfirmBlur} />
           )}
         </FormItem>
+        
+        <FormItem>
+          {getFieldDecorator("userType", {
+            rules: [
+              {
+                required: true,
+                message: "Please select a user!"
+              }
+            ]
+          })(
+            <Select placeholder="Select a user type">
+              <Option value="student">Student</Option>
+              <Option value="teacher">Teacher</Option>
+            </Select>
+          )}
+        </FormItem>
+        <FormItem>
+            {getFieldDecorator('bio', {
+                rules: [{ required: true, message: 'Please input your bio!' }],
+            })(
+                <Input type = "text" placeholder="Bio" />
+            )}
+        </FormItem>
+        
 
         <FormItem>
         <Button type="primary" htmlType="submit" style={{marginRight: '10px'}}>
@@ -119,6 +146,7 @@ class RegistrationForm extends React.Component {
     );
   }
 }
+
 
 const WrappedRegistrationForm = Form.create()(RegistrationForm);
 
