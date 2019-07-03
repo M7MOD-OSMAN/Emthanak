@@ -10747,7 +10747,7 @@ body {
   }
   
   
-.App-logo {
+/* .App-logo {
   animation: spin infinite 20s linear;
 }
 
@@ -10775,13 +10775,13 @@ body {
   padding: 0px;
   font-size: 16px;
   line-height: 1.5;
-}
-.answerOption {
+} */
+/* .answerOption {
   width: 150px;
   float: left;
   display: inherit;
   margin-right: 10px;
-}
+} */
 .next-btn{
 
 }
@@ -10832,12 +10832,12 @@ body {
 
 
 
-button {
+/* button {
   width: 150px;
   padding: 20px;
   border-radius: 8px;
   background-color: #ffffff;
-}
+} */
 
 
 /* Result Component */
@@ -10846,32 +10846,33 @@ button {
 }
 
 /* Quiz Component */
-.answerOptions {
+/* .answerOptions {
   width: 700px;
   margin: auto;
   min-height: 200px;
-}
+} */
 
 /* QuestionCount Component */
-.questionCount {
+/* .questionCount {
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
   background-color: #eeeeee;
-}
+} */
 
 /* Question Component */
-.question {
+/* .question {
   text-align: center;
-}
+} */
 
 /* AnswerOption Component */
 .answerOption {
+
 }
 
-.answerOption:hover {
+/* .answerOption:hover {
   background-color: #eefbfe;
-}
+} */
 
 .radioCustomButton {
   position: absolute;
@@ -10879,10 +10880,27 @@ button {
   opacity: 0;
 }
 
+.list-group-item:hover {
+background: darkcyan;
+}
+
+.list-group-item {
+font-size: 20px;  
+}
 
 
+.list-group-item {
+  margin: 5% 0;
+}
 
+.questions {
+  font: italic 1.2em "Fira Sans", serif;
+  font-size: 40px ;
+}
 
+.p-3 .mb-2 {
+  text-align: center
+}
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, Route } from 'react-router-dom';
+import Exams from './Exams/Exams';
 
 const Content = () => {
     return (
@@ -47,7 +47,8 @@ const Content = () => {
                 </div>
                 <div className="col-md-4">
                     <Link className="btn btn-lg btn-primary btn-block" to="/register"><span>Register Now</span> </Link>
-                    <Link className="btn btn-lg btn-primary btn-block" to="/quiz"><span>Take the quiz</span> </Link>
+                    <Link className="btn btn-lg btn-primary btn-block" to="/exams"><span>Take the quiz</span> </Link>
+                    <Route  path="/exams" component= {Exams} /> 
 
                 </div>
                 <a href="#top" className="btn btn-lg btn-primary btn-block"><span><i></i>Back to top</span></a>

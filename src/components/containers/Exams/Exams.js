@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import QuizRendering from '../QuizRendering';
 import axios from 'axios';
 
 const Exam = (Props) => {
     return(
-        <div className="row mb-2" onClick = {Props.onClick}>
-            <div className="col-lg-4 mb-4">
+        <div className="card text-center row mb-2 w-10 h-10" onClick = {Props.onClick}>
+            <div className="col-lg-12 mb-4">
                 <div className="card h-100">
                 <h4 className="card-header">{Props.name}</h4>
                 <div className="card-body">
@@ -62,9 +62,11 @@ class Exams extends Component {
             <Exam name = {item.subject} desc= {"heelleele"} onClick={()=> this.onExamClick(item)}/>)
         return (
         <BrowserRouter>
-        <div className="container pt-5 mt-5">
+        <div className="container  pt-5 mt-5">
+
         <Route path="/exams" render = {()=>exams_cards}/>
         <Route  exact path="/quiz" render = {()=><QuizRendering dataSet = {this.state.current.mcqs}/>} /> 
+
         </div>
         </BrowserRouter>
                

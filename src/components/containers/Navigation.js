@@ -13,7 +13,7 @@ class  Navigation extends Component {
               
 
         <div className="container">
-          <Link className="navbar-brand" to="/"> <img src={emt7ankLogo}  alt="logo" /> Emt7ank</Link>
+          <Link className="navbar-brand" to="/"> <img src={emt7ankLogo}  alt="logo"/> Emt7ank</Link>
           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

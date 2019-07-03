@@ -1,11 +1,7 @@
-import axios from 'axios';
-
 import React,{Component} from 'react';
 import dataSet from '../Dataset';
 import ScoreArea from '../QuizRendering/ScoreArea';
 import QuizArea from '../QuizRendering/QuizArea';
-
-
 
 class QuizRendering extends Component {
  
@@ -56,11 +52,11 @@ class QuizRendering extends Component {
  
   render() {
     return(
-      <div  className="App">
+      <div  className="App bg-light">
 
-        <div className="App-header  bg-info ">
+        <div className="App-header  bg-light ">
           
-          <h2 className=''>Quiz Assignment:</h2>
+          <h2 className="display-4 bg-info rounded text-center">Quiz Assignment:</h2>
         </div>
         {this.state.current === dataSet.length -1 ? this.renderScoreArea() : this.renderQuizArea()}
         

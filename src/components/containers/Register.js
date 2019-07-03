@@ -3,7 +3,7 @@ import { Form, Input, Icon, Button, Select } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as actions from '../../store/actions/auth';
-const {Option} = Select;
+const { Option } = Select;
 const FormItem = Form.Item;
 
 class RegistrationForm extends React.Component {
@@ -15,13 +15,13 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        let is_student = false;
-        if (values.userType === "student") is_student = true;
+        let is_teacher = false;
+        if (values.userType === "teacher") is_teacher = true;
         this.props.onAuth(
           values.userName,
           values.email,
           values.password,
-          is_student,
+          is_teacher,
           values.bio,
         );
         this.props.history.push('/');
@@ -57,91 +57,91 @@ class RegistrationForm extends React.Component {
 
     return (
       <div className="container  pt-5 ">
-      <div className="card card-register mx-auto mt-5">
-      <div className="card-header text-center">Register an Account</div>
-      <Form onSubmit={this.handleSubmit}>
-               
-        <FormItem>
-            {getFieldDecorator('userName', {
+        <div className="card card-register mx-auto mt-5">
+          <div className="card-header text-center">Register an Account</div>
+          <Form onSubmit={this.handleSubmit}>
+
+            <FormItem>
+              {getFieldDecorator('userName', {
                 rules: [{ required: true, message: 'Please input your username!' }],
-            })(
+              })(
                 <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
-            )}
-        </FormItem>
-        
-        <FormItem>
-          {getFieldDecorator('email', {
-            rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
-          })(
-            <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
-          )}
-        </FormItem>
+              )}
+            </FormItem>
 
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{
-              required: true, message: 'Please input your password!',
-            }, {
-              validator: this.validateToNextPassword,
-            }],
-          })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-          )}
-        </FormItem>
+            <FormItem>
+              {getFieldDecorator('email', {
+                rules: [{
+                  type: 'email', message: 'The input is not valid E-mail!',
+                }, {
+                  required: true, message: 'Please input your E-mail!',
+                }],
+              })(
+                <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
+              )}
+            </FormItem>
 
-        <FormItem>
-          {getFieldDecorator('confirm', {
-            rules: [{
-              required: true, message: 'Please confirm your password!',
-            }, {
-              validator: this.compareToFirstPassword,
-            }],
-          })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="confirm your password" onBlur={this.handleConfirmBlur} />
-          )}
-        </FormItem>
-        
-        <FormItem>
-          {getFieldDecorator("userType", {
-            rules: [
-              {
-                required: true,
-                message: "Please select a user!"
-              }
-            ]
-          })(
-            <Select placeholder="Select a user type">
-              <Option value="student">Student</Option>
-              <Option value="teacher">Teacher</Option>
-            </Select>
-          )}
-        </FormItem>
-        <FormItem>
-            {getFieldDecorator('bio', {
+            <FormItem>
+              {getFieldDecorator('password', {
+                rules: [{
+                  required: true, message: 'Please input your password!',
+                }, {
+                  validator: this.validateToNextPassword,
+                }],
+              })(
+                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+              )}
+            </FormItem>
+
+            <FormItem>
+              {getFieldDecorator('confirm', {
+                rules: [{
+                  required: true, message: 'Please confirm your password!',
+                }, {
+                  validator: this.compareToFirstPassword,
+                }],
+              })(
+                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="confirm your password" onBlur={this.handleConfirmBlur} />
+              )}
+            </FormItem>
+
+            <FormItem>
+              {getFieldDecorator("userType", {
+                rules: [
+                  {
+                    required: true,
+                    message: "Please select a user!"
+                  }
+                ]
+              })(
+                <Select placeholder="Select a user type">
+                  <Option value="student">Student</Option>
+                  <Option value="teacher">Teacher</Option>
+                </Select>
+              )}
+            </FormItem>
+            <FormItem>
+              {getFieldDecorator('bio', {
                 rules: [{ required: true, message: 'Please input your bio!' }],
-            })(
-                <Input type = "text" placeholder="Bio" />
-            )}
-        </FormItem>
-        
+              })(
+                <Input type="text" placeholder="Bio" />
+              )}
+            </FormItem>
 
-        <FormItem>
-        <Button type="primary" htmlType="submit" style={{marginRight: '10px'}}>
-            Signup
+
+            <FormItem>
+              <Button type="primary" htmlType="submit" style={{ marginRight: '10px' }}>
+                Signup
         </Button>
-        Or 
-        <NavLink 
-            style={{marginRight: '10px'}} 
-            to='/login/'> login
+              Or
+        <NavLink
+                style={{ marginRight: '10px' }}
+                to='/login/'> login
         </NavLink>
-        </FormItem>
+            </FormItem>
 
-      </Form>
-      </div>
+          </Form>
+        </div>
       </div>
     );
   }
@@ -151,16 +151,16 @@ class RegistrationForm extends React.Component {
 const WrappedRegistrationForm = Form.create()(RegistrationForm);
 
 const mapStateToProps = (state) => {
-    return {
-        loading: state.loading,
-        error: state.error
-    }
+  return {
+    loading: state.loading,
+    error: state.error
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        onAuth: (username, email, password1, password2) => dispatch(actions.authSignup(username, email, password1, password2)) 
-    }
+  return {
+    onAuth: (username, email, password1, password2) => dispatch(actions.authSignup(username, email, password1, password2))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedRegistrationForm);
