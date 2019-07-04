@@ -15,9 +15,9 @@ const AnswerList = (props) => {
    
   return(
               
-              <ul className="answerOptions">
+              <ol type="A"className="answerOptions">
                  {choices}
-             </ul>
+             </ol>
   );
 }
 

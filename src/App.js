@@ -3,15 +3,15 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import * as actions from './store/actions/auth';
-import Navigation from './components/containers/Navigation';
-import Footer from './components/containers/Footer';
-import Contact from './components/containers/Contact';
-import Register from './components/containers/Register';
-import Home from './components/containers/Home';
-import Login from './components/containers/Login';
-import QuizRendering from './components/containers/QuizRendering';
-import Exams from './components/containers/Exams/Exams'
-import About from './components/containers/About';
+import Navigation from './containers/Navigation';
+import Footer from './containers/Footer';
+import Contact from './containers/Contact';
+import Register from './containers/Register';
+import Home from './containers/Home';
+import Login from './containers/Login';
+import Exams from './components/Exams/Exams'
+import About from './containers/About';
+import Hoc from './hoc/hoc';
 
 class  App extends Component {
 
@@ -23,17 +23,20 @@ class  App extends Component {
   return (
    <BrowserRouter>
     <div className="App">
-      <Navigation {...this.props}/>
+      <Hoc>
+        <Navigation {...this.props}/>
 
-      <Route exact path="/" component= {Home}/>
-      <Route exact path="/home" component= {Home}/>
-      <Route path="/about" component= {About}/>
-      <Route path="/contact" component= {Contact}/>
-      <Route path="/register" component= {Register}/>
-      <Route path="/login" component= {Login}/>
-      <Route  path="/exams" component= {Exams} /> 
+        <Route exact path="/" component= {Home}/>
+        <Route exact path="/home" component= {Home}/>
+        <Route path="/about" component= {About}/>
+        <Route path="/contact" component= {Contact}/>
+        <Route path="/register" component= {Register}/>
+        <Route path="/login" component= {Login}/>
+        <Route  path="/exams" component= {Exams} /> 
 
-      <Footer {...this.props}/>
+        <Footer {...this.props}/>
+      </Hoc>
+      
     </div>
     </BrowserRouter>  
   );

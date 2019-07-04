@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import QuizRendering from '../QuizRendering';
+import QuizRendering from '../../containers/QuizRendering';
 import axios from 'axios';
 
 const Exam = (Props) => {

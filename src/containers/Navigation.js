@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../../store/actions/auth';
-import emt7ankLogo from '../../svg/emt7ankLogo.svg'
+import * as actions from '../store/actions/auth';
+import emt7ankLogo from '../svg/emt7ankLogo.svg'
 
 
 class  Navigation extends Component {

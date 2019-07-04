@@ -61,7 +61,7 @@ export const authLogin = (username, password) => {
     }
 }
 
-export const authSignup = (username, email, password1, is_student,bio) => {
+export const authSignup = (username, email, password1, is_teacher,bio) => {
     var avatar ; 
     return dispatch => {
         dispatch(authStart());
@@ -76,7 +76,7 @@ export const authSignup = (username, email, password1, is_student,bio) => {
                 "location": "",
                 "career": "",
                 "birth_date": null,
-                "is_teacher": is_student,
+                "is_teacher": is_teacher,
                 "phone_number": "",
                 "avatar": avatar
             },

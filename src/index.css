@@ -10881,7 +10881,7 @@ body {
 }
 
 .list-group-item:hover {
-background: darkcyan;
+background: chartreuse;
 }
 
 .list-group-item {
@@ -10895,14 +10895,17 @@ font-size: 20px;
 
 .questions {
   font: italic 1.2em "Fira Sans", serif;
-  font-size: 40px ;
+  font-size: 35px;
+  background-color: var(--success) 
 }
 
 .p-3 .mb-2 {
   text-align: center
 }
 
-
+.text-primary {
+  font-size: 30px;
+}
 
 
 .fade-appear.fade-appear-active {

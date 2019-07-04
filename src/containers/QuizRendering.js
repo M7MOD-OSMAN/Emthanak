@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import dataSet from '../Dataset';
-import ScoreArea from '../QuizRendering/ScoreArea';
-import QuizArea from '../QuizRendering/QuizArea';
+import dataSet from '../components/Dataset';
+import ScoreArea from '../components/QuizRendering/ScoreArea';
+import QuizArea from '../components/QuizRendering/QuizArea';
 
 class QuizRendering extends Component {
  

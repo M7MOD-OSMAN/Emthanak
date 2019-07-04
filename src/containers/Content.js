@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-import Exams from './Exams/Exams';
+import Exams from '../components/Exams/Exams';
 
 const Content = () => {
     return (
