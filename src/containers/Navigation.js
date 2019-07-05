@@ -45,6 +45,12 @@ class  Navigation extends Component {
 
               {
                      this.props.isAuthenticated ?
+                     
+                    <>
+                    
+                    <li className="nav-item">
+                      <NavLink className="nav-link text-white " to="/create-exam">Create Exam</NavLink>
+                    </li>
 
                      <li className="nav-item" >
                       <Dropdown >
@@ -63,6 +69,7 @@ class  Navigation extends Component {
                       </li>
                     
 
+                    </>
                     :
                          <li className="nav-item">
                             <Link className="nav-link text-white" exact to="/login" activeStyle={{ background: '#0AB8ED'}}>Login</Link>
