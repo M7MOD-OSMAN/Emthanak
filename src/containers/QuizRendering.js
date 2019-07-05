@@ -37,7 +37,7 @@ class QuizRendering extends Component {
     return <QuizArea 
     handleClick={this.handleClick} 
     dataSet={this.state.dataSet[this.state.current]}
-    questionTotal={dataSet.length}
+    questionTotal={this.state.dataSet.length}
     currentQuestion={this.state.current + 1}
 
     /> 

@@ -3,6 +3,7 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
 import emt7ankLogo from '../svg/emt7ankLogo.svg'
+import { Dropdown,Item ,Menu} from 'react-bootstrap';
 
 
 class  Navigation extends Component {
@@ -24,9 +25,9 @@ class  Navigation extends Component {
                 <NavLink className="nav-link text-white" exact to="/home" activeStyle={{ background: '#0AB8ED'}}>Home</NavLink>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link text-white" to="/about" activeStyle={{ background: '#0AB8ED'}}>About</NavLink>
-              </li>
+              </li> */}
             
               <li className="nav-item">
                 <NavLink className="nav-link text-white " to="/contact" activeStyle={{ background: '#0AB8ED'}}>Contact</NavLink>
@@ -45,9 +46,22 @@ class  Navigation extends Component {
               {
                      this.props.isAuthenticated ?
 
-                     <li className="nav-item" onClick={this.props.logout}>
-                         <NavLink className="nav-link text-white" exact to="/" activeStyle={{ background: '#0AB8ED'}}>Logout</NavLink>
-                    </li>
+                     <li className="nav-item" >
+                      <Dropdown >
+                          <Dropdown.Toggle variant="dark" id="dropdown-basic" 
+                        >
+                            Profile
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item href="/" onClick={this.props.logout}>Logout</Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </li>
+                    
 
                     :
                          <li className="nav-item">
@@ -56,8 +70,11 @@ class  Navigation extends Component {
 
               }
            
+           
+
 
             </ul>
+
           </div>
         </div>
       </nav>
