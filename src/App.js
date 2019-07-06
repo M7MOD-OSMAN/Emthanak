@@ -13,6 +13,7 @@ import Exams from './components/Exams/Exams';
 import CreateExam from './components/Exams/CreateExam';
 import About from './containers/About';
 import Hoc from './hoc/hoc';
+import NotFound from './containers/NotFound';
 
 class  App extends Component {
 
@@ -36,6 +37,8 @@ class  App extends Component {
         <Route path="/login" component= {Login}/>
         <Route path="/exams" component= {Exams}/>
         <Route path='/create-exam' component= {CreateExam} /> 
+        <Route component={NotFound} />
+
         </Switch>
 
         <Footer {...this.props}/>

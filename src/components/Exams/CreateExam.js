@@ -52,6 +52,17 @@ const McqsInputs = (props) => {
 						placeholder="third choice"
 						className="choice_c"
 					/>
+
+					<input
+						type="text"
+						name={mcqsId}
+						data-id={idx}
+						id={mcqsId}
+						value={props.mcqs[idx].choice_d}
+						placeholder="fourth choice"
+						className="choice_d"
+					/>
+
                     <input
                         type="number"
                         pattern="[0-9]*"
@@ -84,14 +95,14 @@ const McqsInputs = (props) => {
 */
 class CreateExam extends React.Component {
 	state = {
-		mcqs: [ { question: '', choice_a: '', choice_b: '', choice_c: '', answer:'' } ],
+		mcqs: [ { question: '', choice_a: '', choice_b: '', choice_c: '',choice_d: '', answer:'' } ],
 		subject: '',
 		time: '',
 		category: ''
 	};
 	handleChange = (e) => {
 
-		if ([ 'question', 'choice_a', "choice_b", "choice_c", 'answer' ].includes(e.target.className)) {
+		if ([ 'question', 'choice_a', "choice_b", "choice_c", "choice_d", 'answer' ].includes(e.target.className)) {
 			let mcqs = [ ...this.state.mcqs ];
 			mcqs[e.target.dataset.id][e.target.className] = e.target.value;
 			this.setState({ mcqs }, () => console.log(this.state.mcqs));
@@ -103,7 +114,7 @@ class CreateExam extends React.Component {
 	addMcq = (e) => {
 		this.setState((prevState) => ({
             mcqs: [ ...prevState.mcqs, 
-                { question: '', choice_a: '', choice_b: '', choice_c: '', answer:'' } ]
+                { question: '', choice_a: '', choice_b: '', choice_c: '', choice_d: '', answer:'' } ]
 		}));
 	};
 	handleSubmit = (e) => {

@@ -287,7 +287,7 @@ const Cardpage = () => {
                 </div>
             </div>
            
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-xs-12 col-sm-6 col-md-4 amrgom3a" >
                 <div className="image-flip" ontouchstart="this.classNameList.toggle('hover');">
                     <div className="mainflip">
                         <div className="frontside">

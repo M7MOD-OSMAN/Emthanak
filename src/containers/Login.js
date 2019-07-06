@@ -29,7 +29,7 @@ class NormalLoginForm extends React.Component {
 
     const { getFieldDecorator } = this.props.form;
     return (
-        <div className=' pt-5 '>
+        <div className=' pt-5 ' style={{  height: '538px' }}>
             {errorMessage}
             {
                 this.props.loading ?

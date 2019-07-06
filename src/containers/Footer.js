@@ -2,8 +2,8 @@ import React from 'react';
 
 const  Footer= () => {
     return (
-        <footer className="container py-4 bg-dark">
-            
+        <footer className="  py-4 bg-dark">
+           
             <ul className="list-inline text-center ">
                                         <li className="list-inline-item">
                                             <a className="social-icon text-lg-center text-white h4" target="_blank" href="https://www.facebook.com/mhmoud.elgangidy">

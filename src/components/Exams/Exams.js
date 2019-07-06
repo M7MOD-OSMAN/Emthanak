@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import QuizRendering from '../../containers/QuizRendering';
 import axios from 'axios';
+import NotFound from '../../containers/NotFound';
 
 const Exam = (Props) => {
     return(
@@ -75,13 +76,9 @@ class Exams extends Component {
   }
 
   return (
-    <div className="container mt-5 pt-5 text-center">
-       <h1> Sorry, You Should Login First :) </h1> 
-
-     <h3 className="mt-5">
-     <Link to="login" >Login Here</Link>
-       </h3> 
-      
+    <div className="container  mt-5 pt-5 text-center " style={{  height: '500px' }}>
+        <NotFound />
+     
       
     </div>
     

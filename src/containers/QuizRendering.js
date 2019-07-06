@@ -24,7 +24,7 @@ class QuizRendering extends Component {
       this.setState({incorrect: this.state.incorrect + 1})
     }
     
-    if (this.state.current === dataSet.length -1) {
+    if (this.state.current === this.state.dataSet.length ) {
       this.setState({current:this.state.current})
       this.setState({incorrect: this.state.incorrect})
       this.setState({correct: this.state.correct})
@@ -58,7 +58,7 @@ class QuizRendering extends Component {
           
           <h2 className="display-4 bg-info rounded text-center">Quiz Assignment:</h2>
         </div>
-        {this.state.current === dataSet.length -1 ? this.renderScoreArea() : this.renderQuizArea()}
+        {this.state.current === this.state.dataSet.length  ? this.renderScoreArea() : this.renderQuizArea()}
         
       </div>
     )

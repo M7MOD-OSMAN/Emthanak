@@ -11101,9 +11101,29 @@ input, textarea{
   background: var(--primary);
 }
 
-/* .gomaa {
-    height: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.amrgom3a{
+  margin-left: 310px;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+
+
+.not-found {
+  text-align: center;
+}
+.icn-error {
+  font-size: 3.2em;
+  margin-bottom: .25em;
+}
+/* .icn-logo {
+  background: #54606b;
+  color: #fff;
+}
+.icn-logo i {
+  font-size: 2.45em;
+  line-height: 0;
+  margin-top: 30px;
 } */
