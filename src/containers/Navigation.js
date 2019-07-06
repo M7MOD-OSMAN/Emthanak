@@ -7,9 +7,15 @@ import { Dropdown, Item ,Menu} from 'react-bootstrap';
 
 
 class  Navigation extends Component {
+  
   state = {value: ''};
 	handleChange = (e) => {
-    this.setState({value: e.target.value});
+    this.setState({value: e.target.value});       
+  }
+  SearchhandleSubmit = (e) => {
+    console.log(this.props);
+    this.props.history.push(`/exams?search=${this.state.value}`)
+
 
   }
   render() {
@@ -24,14 +30,14 @@ class  Navigation extends Component {
           width="100" height="60" 
           src={emt7ankLogo} alt="logo"/>  </Link>
 
-          <form className="form-inline">
+          <form onSubmit={this.SearchhandleSubmit} className="form-inline">
 
             <input  onChange={this.handleChange} value={this.state.value}
              class="form-control mr-sm-2" name="search" type="search" placeholder="Search exams" aria-label="Search"/>
 
-            <Link to={`/exams?search=${this.state.value}`}>
+            {/* <Link to={`/exams?search=${this.state.value}`}> */}
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-            </Link>
+            {/* </Link> */}
           </form>
 
           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
