@@ -3,21 +3,42 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
 import emt7ankLogo from '../svg/emt7ankLogo.svg'
-import { Dropdown,Item ,Menu} from 'react-bootstrap';
+import { Dropdown, Item ,Menu} from 'react-bootstrap';
 
 
 class  Navigation extends Component {
+  state = {value: ''};
+	handleChange = (e) => {
+    this.setState({value: e.target.value});
+
+  }
   render() {
     return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top ">
-            
+
               
 
         <div className="container">
-          <Link className="navbar-brand" to="/"> <img src={emt7ankLogo}  alt="logo"/> Emt7ank</Link>
+          
+          <Link style={{padding: 0}} className="navbar-brand" to="/"> <img
+          width="100" height="60" 
+          src={emt7ankLogo} alt="logo"/>  </Link>
+
+          <form className="form-inline">
+
+            <input  onChange={this.handleChange} value={this.state.value}
+             class="form-control mr-sm-2" name="search" type="search" placeholder="Search exams" aria-label="Search"/>
+
+            <Link to={`/exams?search=${this.state.value}`}>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </Link>
+          </form>
+
           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+
+
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
 
@@ -45,7 +66,7 @@ class  Navigation extends Component {
 
               {
                      this.props.isAuthenticated ?
-                     
+
                     <>
                     
                     <li className="nav-item">

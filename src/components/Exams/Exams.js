@@ -25,9 +25,11 @@ class Exams extends Component {
       current : null ,
       dataSet:[],
       }
-  get_exams= ()=> { 
+  get_exams= ()=> {
+    const {location: {search}}  = this.props; 
+    console.log(this.props);
       console.log(localStorage.getItem('token'));
-      axios.get('https://elshafeay.pythonanywhere.com/api/v2/exams/',
+      axios.get(`https://elshafeay.pythonanywhere.com/api/v2/exams/${search}`,
         {headers:     
           {
             'Content-Type': 'application/json',
