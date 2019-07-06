@@ -6,6 +6,54 @@ const Cardpage = () => {
     <div className="container">
         <h5 className="section-title h1">OUR TEAM</h5>
         <div className="row">
+
+                    <div className="col-xs-12 col-sm-6 col-md-4">
+                        <div className="image-flip" ontouchstart="this.classNameList.toggle('hover');">
+                            <div className="mainflip">
+                                <div className="frontside">
+                                    <div className="card">
+                                        <div className="card-body text-center">
+                                            <p><img className=" img-fluid" src="https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-1/60484084_2669220209819348_216942380123684864_n.jpg?_nc_cat=104&_nc_oc=AQmiotDsDn3CsWOGVTsGbhvOPJvzaAp7Dn8p94Wa4tBm7J7OyNm5iwpAz_tEdSgWz9Y&_nc_ht=scontent-hbe1-1.xx&oh=9eff79ceb40ff037a11c0e5b12d90fdd&oe=5D78E8AD" alt='card' /></p>
+                                            <h4 className="card-title">Amr Anwar</h4>
+                                            <p className="card-text">Full stack developer</p>
+                                            <a href="https://www.facebook.com/amranwar00" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="backside">
+                                    <div className="card">
+                                        <div className="card-body text-center mt-4">
+                                            <h4 className="card-title">Amr Anwar</h4>
+                                            <p className="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                            <ul className="list-inline">
+                                                <li className="list-inline-item">
+                                                    <a className="social-icon text-xs-center" target="_blank" href="https://www.facebook.com/amranwar00">
+                                                        <i className="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="list-inline-item">
+                                                    <a className="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i className="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="list-inline-item">
+                                                    <a className="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i className="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="list-inline-item">
+                                                    <a className="social-icon text-xs-center" target="_blank" href="#">
+                                                        <i className="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+
             <div className="col-xs-12 col-sm-6 col-md-4">
                 <div className="image-flip" ontouchstart="this.classNameList.toggle('hover');">
                     <div className="mainflip">

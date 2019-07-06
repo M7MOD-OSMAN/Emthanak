@@ -6,6 +6,7 @@ const McqsInputs = (props) => {
 		let QuestionId = `question-${idx}`,
 			mcqsId = `mcqs-${idx}`;
 		return (
+		<div className="container2">	
 			<div key={idx}>
 				<div>
 					<label htmlFor={QuestionId}>{`Question #${idx + 1}:`}</label>
@@ -21,6 +22,7 @@ const McqsInputs = (props) => {
 				</div>
 				<div>
 					<label htmlFor={mcqsId}>Mcqs</label>
+						<div className="list-group">
 					<input
 						type="text"
 						name={mcqsId}
@@ -61,8 +63,10 @@ const McqsInputs = (props) => {
 						placeholder="answer number"
 						className="answer"
 					/>
+						</div>
 				</div>
 			</div>
+		</div>	
 		);
 	});
 };
@@ -141,8 +145,8 @@ class CreateExam extends React.Component {
 	render() {
 		let { subject, time, category, mcqs } = this.state;
 		return (
-			<div className="container  pt-5 mt-5">
-				<form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+			<div className="container2  pt-5 mt-5">
+				<form className="form-style" onSubmit={this.handleSubmit} onChange={this.handleChange}>
 					<div>
 						<label htmlFor="subject">Subject</label>
 						<input type="text" name="subject" id="subject" value={subject} />
@@ -161,9 +165,9 @@ class CreateExam extends React.Component {
 						<input type="text" name="category" id="category" value={category} />
 					</div>
 
-					<button onClick={this.addMcq}>Add new Mcq</button>
+					<button id="button" onClick={this.addMcq}>Add new Mcq</button>
 					<McqsInputs mcqs={mcqs} />
-					<input type="submit" value="Submit" />
+					<input type="submit" value="Submit" id="button"/>
 				</form>
 			</div>
 		);

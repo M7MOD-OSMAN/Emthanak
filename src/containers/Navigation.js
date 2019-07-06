@@ -33,7 +33,7 @@ class  Navigation extends Component {
           <form onSubmit={this.SearchhandleSubmit} className="form-inline">
 
             <input  onChange={this.handleChange} value={this.state.value}
-             class="form-control mr-sm-2" name="search" type="search" placeholder="Search exams" aria-label="Search"/>
+             className="form-control mr-sm-2" name="search" type="search" placeholder="Search exams" aria-label="Search"/>
 
             {/* <Link to={`/exams?search=${this.state.value}`}> */}
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
