@@ -3,7 +3,9 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
 import emt7ankLogo from '../svg/emt7ankLogo.svg'
-import { Dropdown, Item ,Menu} from 'react-bootstrap';
+import { Dropdown,DropdownButton} from 'react-bootstrap';
+
+const {MenuItem} = DropdownButton;
 
 
 class  Navigation extends Component {
@@ -33,10 +35,10 @@ class  Navigation extends Component {
           <form onSubmit={this.SearchhandleSubmit} className="form-inline">
 
             <input  onChange={this.handleChange} value={this.state.value}
-             class="form-control mr-sm-2" name="search" type="search" placeholder="Search exams" aria-label="Search"/>
+             className="form-control mr-sm-2" name="search" type="search" placeholder="Search exams" aria-label="Search"/>
 
             {/* <Link to={`/exams?search=${this.state.value}`}> */}
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             {/* </Link> */}
           </form>
 
@@ -60,7 +62,7 @@ class  Navigation extends Component {
                 <NavLink className="nav-link text-white " to="/contact" activeStyle={{ background: '#0AB8ED'}}>Contact</NavLink>
               </li>
 
-
+              
               <li className="nav-item">
                 <NavLink className="nav-link text-white rounded-lg" to="/exams" activeStyle={{ background: '#0AB8ED'}}>Exams</NavLink>
               </li>
@@ -74,25 +76,41 @@ class  Navigation extends Component {
                      this.props.isAuthenticated ?
 
                     <>
-                    
-                    <li className="nav-item">
+                    {
+                      this.props.is_teacher ?
+
+                       <li className="nav-item">
                       <NavLink className="nav-link text-white " to="/create-exam">Create Exam</NavLink>
                     </li>
+                    :
+                    null
+                    }
+                   
 
                      <li className="nav-item" >
                       <Dropdown >
                           <Dropdown.Toggle variant="dark" id="dropdown-basic" 
-                        >
-                            Profile
+                          >
+                            <a className="" data-toggle="dropdown"   href="#">
+                                <i className="fa fa-user fa-fw"></i>
+                                {this.props.username}
+                            </a>
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1"><i className="fa fa-envelope fa-fw"></i>User Profile</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2"><i className="fa fa-gear fa-fw"></i> Settings</Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item href="/" onClick={this.props.logout}>Logout</Dropdown.Item>
+                            <Dropdown.Item href="/" onClick={this.props.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
+
+                        {/* <DropdownButton eventKey={3} title='Bootstrap'>
+                          <MenuItem eventKey='1'><i className="fa fa-envelope fa-fw"></i> User Profile</MenuItem>
+                          <MenuItem eventKey='2'><i className="fa fa-gear fa-fw"></i> Settings</MenuItem>
+                          <MenuItem divider />
+                          <MenuItem eventKey='3'><i className="fa fa-sign-out fa-fw"></i> Logout</MenuItem>
+                        </DropdownButton> */}
                       </li>
                     
 

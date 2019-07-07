@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import QuizRendering from '../../containers/QuizRendering';
+import QuizRendering from '../QuizRendering/QuizRendering';
 import axios from 'axios';
 import NotFound from '../../containers/NotFound';
 
@@ -48,7 +48,7 @@ class Exams extends Component {
       });
     
     }
-    componentDidMount(Props){
+    componentDidMount(){
      this.get_exams();
     }
 
@@ -59,7 +59,7 @@ class Exams extends Component {
  render (){
 
       
-  if(this.state.dataSet[0]){
+  if(localStorage.getItem("token")){
    const exams_cards=    this.state.dataSet.map(item =>
           <Exam name = {item.subject} desc= {"heelleele"} onClick={()=> this.onExamClick(item)}/>)
       return (

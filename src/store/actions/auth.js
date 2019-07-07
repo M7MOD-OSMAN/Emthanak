@@ -103,6 +103,8 @@ export const authSignup = (username, email, password1, is_teacher,bio) => {
     }
 }
 
+  
+
 export const authCheckState = () => {
     return dispatch => {
         const token = localStorage.getItem('token');

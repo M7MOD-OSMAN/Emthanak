@@ -10746,18 +10746,14 @@ body {
     }
   }
   
-  
-/* .App-logo {
+  .App-logo {
   animation: spin infinite 20s linear;
+  height: 100px;
 }
 
 .App-header {
   background-color: #222;
-  padding: 20px;
-  color: white;
-  text-align: center;
-  min-height: 10px;
-  padding-top: 94px;
+  color: white; 
 }
 
 .App-intro {
@@ -10768,6 +10764,7 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+ */
 .radioCustomLabel {
   position: relative;
   width: 100% !important;
@@ -10780,6 +10777,9 @@ body {
   width: 150px;
   float: left;
   display: inherit;
+
+
+
   margin-right: 10px;
 } */
 
@@ -10861,9 +10861,7 @@ body {
 } */
 
 /* AnswerOption Component */
-.answerOption {
 
-}
 
 /* .answerOption:hover {
   background-color: #eefbfe;
@@ -10889,8 +10887,8 @@ font-size: 20px;
 }
 
 .questions {
-  font: italic 1.2em "Fira Sans", serif;
-  font-size: 40px ;
+  font: italic 1.2em "Arial", serif;
+  font-size: 30px ;
 }
 
 .p-3 .mb-2 {
@@ -11060,9 +11058,10 @@ section .section-title {
 .form-style {
   max-width: 700px;
   margin:2rem auto;
-  border:2px solid rgb(37, 219, 128);
+  border:2px solid rgb(0, 10, 9);
   padding:2rem;
   border-radius:5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 } 
 
 label{
@@ -11085,7 +11084,7 @@ input, textarea{
 
 #button{
   border:0;
-  background:#4c3cb4;
+  background:#2e6ef8;
   padding:.5rem;
   color:white;
   margin:1rem 0;
@@ -11098,7 +11097,7 @@ input, textarea{
 }
 
 #button:hover {
-  background: var(--primary);
+  background: rgba(7, 41, 151, 0.911)
 }
 
 
@@ -11127,3 +11126,8 @@ input, textarea{
   line-height: 0;
   margin-top: 30px;
 } */
+
+.logoreact{
+  animation: spin infinite 20s linear;
+  height: 30px;
+}

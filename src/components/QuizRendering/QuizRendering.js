@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
-import dataSet from '../components/Dataset';
-import ScoreArea from '../components/QuizRendering/ScoreArea';
-import QuizArea from '../components/QuizRendering/QuizArea';
+import dataSet from '../Dataset';
+import ScoreArea from './ScoreArea';
+import QuizArea from './QuizArea';
+import logo from '../../svg/logo.svg';
 
 class QuizRendering extends Component {
  
@@ -12,7 +13,7 @@ class QuizRendering extends Component {
         current:0, 
         dataSet: props.dataSet,
          correct:0,
-          incorrect:0
+          incorrect:0,
         }
      }
   handleClick= (choice) => {
@@ -54,10 +55,12 @@ class QuizRendering extends Component {
     return(
       <div  className="App bg-light">
 
-        <div className="App-header  bg-light ">
-          
-          <h2 className="display-4 bg-info rounded text-center">Quiz Assignment:</h2>
-        </div>
+        
+          <h2 className="display-4 bg-dark text-white rounded text-center">
+            <span><img src={logo} className="App-logo" alt="logo" /></span>
+            Quiz Assignment
+            <span><img src={logo} className="App-logo" alt="logo" /></span>
+            </h2>
         {this.state.current === this.state.dataSet.length  ? this.renderScoreArea() : this.renderQuizArea()}
         
       </div>

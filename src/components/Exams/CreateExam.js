@@ -1,6 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 
+
+
+
+class Popup extends React.Component {
+	render() {
+	  return (
+		<div className='popup'>
+		  <div className='popup_inner'>
+			<h1>{this.props.text}</h1>
+		  </div>
+		</div>
+	  );
+	}
+  }
+
 const McqsInputs = (props) => {
 	return props.mcqs.map((val, idx) => {
 		let QuestionId = `question-${idx}`,
@@ -71,7 +86,7 @@ const McqsInputs = (props) => {
 						data-id={idx}
 						id={mcqsId}
 						value={props.mcqs[idx].answer}
-						placeholder="answer number"
+						placeholder="answer number from '0-3' as first choice = '0'"
 						className="answer"
 					/>
 						</div>
@@ -98,7 +113,8 @@ class CreateExam extends React.Component {
 		mcqs: [ { question: '', choice_a: '', choice_b: '', choice_c: '',choice_d: '', answer:'' } ],
 		subject: '',
 		time: '',
-		category: ''
+		category: '',
+		showPopup: false
 	};
 	handleChange = (e) => {
 
@@ -151,8 +167,16 @@ class CreateExam extends React.Component {
     
         });
       
-            
+		     
 	};
+
+	togglePopup=()=> {
+		this.setState({
+		  showPopup: !this.state.showPopup
+		});
+	  }
+
+
 	render() {
 		let { subject, time, category, mcqs } = this.state;
 		return (
@@ -178,7 +202,14 @@ class CreateExam extends React.Component {
 
 					<button id="button" onClick={this.addMcq}>Add new Mcq</button>
 					<McqsInputs mcqs={mcqs} />
-					<input type="submit" value="Submit" id="button"/>
+					<input type="submit" value="Submit" id="button" onClick={this.togglePopup}/>
+					{this.state.showPopup ? 
+          <Popup
+            text='Exam Has Been Added !'
+            closePopup={this.togglePopup}
+          />
+          : null
+        }
 				</form>
 			</div>
 		);
