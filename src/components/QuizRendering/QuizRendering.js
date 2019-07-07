@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import dataSet from '../Dataset';
+import axios from 'axios';
 import ScoreArea from './ScoreArea';
 import QuizArea from './QuizArea';
 import logo from '../../svg/logo.svg';
@@ -43,11 +44,38 @@ class QuizRendering extends Component {
 
     /> 
   }
+  send_result(result){
+    const {examPk} = this.props;
+    axios.post("http://elshafeay.pythonanywhere.com/api/v2/users/me/finished-exams/",
+    
+      {
+        "exam_pk":examPk,
+        "result": result
+      }
+    ,
+      {
+        headers:
+        {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + localStorage.getItem("token")
+        }
+      }
+    )
+      .then(res => {
+      
+      })
+      .catch(err => {
+        console.log('auth failed' + err)
 
+      });
+  }
   renderScoreArea=()=>{
+    const correct = this.state.correct;
+    const incorrect = this.state.incorrect;
+    this.send_result((correct/(incorrect+correct))*100)
     return <ScoreArea 
-    correct={this.state.correct}
-    incorrect={this.state.incorrect} 
+    correct={correct}
+    incorrect={incorrect} 
   />
   }
  

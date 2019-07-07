@@ -98,19 +98,15 @@ class  Navigation extends Component {
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1"><i className="fa fa-envelope fa-fw"></i>User Profile</Dropdown.Item>
+                          <Dropdown.Item href="/userinfo"><i className="fa fa-envelope fa-fw"></i>User Profile</Dropdown.Item>
+                         
                             <Dropdown.Item href="#/action-2"><i className="fa fa-gear fa-fw"></i> Settings</Dropdown.Item>
                             <Dropdown.Divider />
                             <Dropdown.Item href="/" onClick={this.props.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
 
-                        {/* <DropdownButton eventKey={3} title='Bootstrap'>
-                          <MenuItem eventKey='1'><i className="fa fa-envelope fa-fw"></i> User Profile</MenuItem>
-                          <MenuItem eventKey='2'><i className="fa fa-gear fa-fw"></i> Settings</MenuItem>
-                          <MenuItem divider />
-                          <MenuItem eventKey='3'><i className="fa fa-sign-out fa-fw"></i> Logout</MenuItem>
-                        </DropdownButton> */}
+                         
                       </li>
                     
 

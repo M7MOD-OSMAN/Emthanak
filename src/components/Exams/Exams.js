@@ -67,7 +67,9 @@ class Exams extends Component {
       <div className="container  pt-5 mt-5">
 
       <Route path="/exams" render = {()=>exams_cards}/>
-      <Route  exact path="/quiz" render = {()=><QuizRendering dataSet = {this.state.current.mcqs}/>} /> 
+      <Route  exact path="/quiz" 
+        render = {()=><QuizRendering dataSet = {this.state.current.mcqs}
+             examPk ={this.state.current.pk}/>} /> 
 
       </div>
       </BrowserRouter>

@@ -15,6 +15,7 @@ import About from './containers/About';
 import Hoc from './hoc/hoc';
 import NotFound from './containers/NotFound';
 import axios from 'axios';
+import UserInfo from './components/userInfo/UserInfo';
 
 
 class  App extends Component {
@@ -24,7 +25,7 @@ class  App extends Component {
     dataa:[],
     username:'',
     is_teacher:false,
-    finished_exams:[],
+    finished_exams:null,
     take_later_exams:[],
     latest_result:0
 
@@ -45,10 +46,10 @@ getUserInfo = () => {
   username:res.data.username,
   id:res.data.id,
   is_teacher:res.data.profile.is_teacher,
-  finished_exams:res.data.finished_exams,
+   finished_exams: res.data.finished_exams,
   take_later_exams:res.data.take_later_exams,
   latest_result:res.data.latest_result
- });
+ }, this.render);
 })
 .catch(err => {
   console.log('auth failed' + err)
@@ -56,10 +57,10 @@ getUserInfo = () => {
 });
 };
 
-componentDidUpdate(){
-      this.getUserInfo();
+// componentDidUpdate(){
+//       this.getUserInfo();
 
-}
+// }
 
   componentDidMount() {
     this.props.onTryAutoSignup();  
@@ -90,6 +91,7 @@ componentDidUpdate(){
         <Route path="/login" component= {Login}/>
         <Route path="/exams" component= {Exams}/>
         <Route path='/create-exam' component= {CreateExam} /> 
+            <Route path="/userInfo" render={() => <UserInfo {...this.state}/> } />
         <Route component={NotFound} />
 
         </Switch>

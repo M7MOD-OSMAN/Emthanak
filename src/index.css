@@ -10888,7 +10888,8 @@ font-size: 20px;
 
 .questions {
   font: italic 1.2em "Arial", serif;
-  font-size: 30px ;
+  font-size: 25px ;
+  background: #d9d4d4;
 }
 
 .p-3 .mb-2 {
@@ -11130,4 +11131,23 @@ input, textarea{
 .logoreact{
   animation: spin infinite 20s linear;
   height: 30px;
+}
+
+.text-white {
+  font-size: 20px;
+}
+
+.container0 {
+   border:0;
+  background:#027ca1;
+  padding:.5rem;
+  color:white;
+  margin:1rem 0;
+  width:auto;
+  cursor:pointer;
+  transition:.3s ease;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
